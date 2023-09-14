@@ -1,5 +1,4 @@
 #include <iostream>
-
 int main(int argc, char* argv[])
 {
 	long long k, a, b, amod, i, j, imod;

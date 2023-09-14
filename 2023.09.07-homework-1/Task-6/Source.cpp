@@ -1,10 +1,10 @@
 #include <iostream>
-using namespace std;
-int main()
+
+int main(int argc, char* argv[])
 {
 	long a, b, c, d;
-	cin >> a >> b;
+	std::cin >> a >> b;
 	c = a / b;
 	d = b / a;
-	cout << (a * c + b * d) / (c + d);
+	std::cout << (a * c + b * d) / (c + d);
 }

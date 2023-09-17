@@ -1,7 +1,7 @@
 #include <iostream>
 int main(int argc, char* argv[])
 {
-	long long k, a, b, amod, i, j, imod;
+	long long k = 0, a = 0, b = 0, amod = 0, i = 0, j = 0, imod = 0;
 	std::cin >> a;
 	k = a;
 	a = 10001 + k;

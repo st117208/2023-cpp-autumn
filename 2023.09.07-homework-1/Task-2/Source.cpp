@@ -1,7 +1,15 @@
 #include <iostream>
+
 int main(int argc, char* argv[])
 {
-	long long k = 0, a = 0, b = 0, amod = 0, i = 0, j = 0, imod = 0;
+	long long k = 0;
+	long long a = 0;
+	long long b = 0;
+	long long amod = 0;
+	long long i = 0;
+	long long j = 0;
+	long long imod = 0;
+	long long otv = 0;
 	std::cin >> a;
 	k = a;
 	a = 10001 + k;
@@ -10,5 +18,7 @@ int main(int argc, char* argv[])
 	j = 10001 - (k - 1);
 	amod = (a * (a / b) + b * (b / a)) / (a / b + b / a) - 10001;
 	imod = (i * (i / j) + j * (j / i)) / (i / j + j / i) - 10001;
-	std::cout << (imod * ((k * amod) % (amod + 1) + 1 + k) / 2) + 1;
+	otv = (imod * ((k * amod) % (amod + 1) + 1 + k) / 2) + 1;
+	std::cout << otv;
+	return EXIT_SUCCESS;
 }

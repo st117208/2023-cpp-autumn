@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	{
 		std::cout << "NO" << std::endl;
 	}
-	else if (((b % a) == 0) && (c * x + d != 0) && (a != 0))
+	else if ((b % a == 0) && (c * x + d != 0) && (a != 0))
 	{
 		std::cout << x << std::endl;
 	}

@@ -11,16 +11,23 @@ int main(int argc, char* argv[])
 	std::cin >> b;
 	std::cin >> c;
 	std::cin >> d;
-	x = (-b) / a;
+	if (a != 0)
+	{
+		x = (-b) / a;
+	}
 	if ((a == 0) && (b == 0))
 	{
 		std::cout << "INF" << std::endl;
 	}
-	else if (((b % a) == 0) && (c * x + d != 0))
+	else if ((a == 0) && (b != 0))
+	{
+		std::cout << "NO" << std::endl;
+	}
+	else if (((b % a) == 0) && (c * x + d != 0) && (a != 0))
 	{
 		std::cout << x << std::endl;
 	}
-	else
+	else if (a != 0)
 	{
 		std::cout << "NO" << std::endl;
 	}

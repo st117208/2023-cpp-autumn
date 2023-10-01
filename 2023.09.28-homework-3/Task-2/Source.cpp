@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 	long long k = 1;
 	long long b = 0;
 	long long c = 0;
-	long long sum = 0;
+	long long s = 0;
 	std::cin >> a;
 	b = a;
 	while (b != 0)
@@ -20,9 +20,9 @@ int main(int argc, char* argv[])
 	{
 		c = a % 10;
 		a = a / 10;
-		sum = sum + c * k;
+		s = s + c * k;
 		k = k / 10;
 	}
-	std::cout << sum;
+	std::cout << s;
 	return EXIT_SUCCESS;
 }

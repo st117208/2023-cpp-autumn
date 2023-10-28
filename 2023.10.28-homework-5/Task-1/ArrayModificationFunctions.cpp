@@ -133,9 +133,13 @@ int ChangeMinMaxElements(int* a, int l)
 	if (a != nullptr)
 	{
 		int r = 0;
-		r = a[IndexFirstMaxElement(a, l)];
-		a[IndexFirstMaxElement(a, l)] = a[IndexLastMinElement(a, l)];
-		a[IndexLastMinElement(a, l)] = r;
+		int min = 0;
+		int max = 0;
+		min = IndexLastMinElement(a, l);
+		max = IndexFirstMaxElement(a, l);
+		r = a[min];
+		a[min] = a[max];
+		a[max] = r;
 		return 1;
 	}
 }

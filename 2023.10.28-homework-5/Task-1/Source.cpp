@@ -124,6 +124,8 @@ int main(int argc, char* argv[])
 			}
 			default:
 				std::cout << "Неизвестная команда" << std::endl;
+				std::cout << std::endl;
+				system("pause");
 				break;
 			}
 		}

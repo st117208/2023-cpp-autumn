@@ -2,6 +2,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<cstring>
+//strcmp
 
 void CountSize(char* filename, int& lines, int& maxLine)
 {
@@ -42,17 +43,6 @@ void ReadLines(char* filename, char** lines, int h)
 		fscanf(file, "%[^\n]%*c", lines[i]);
 	}
 	fclose(file);
-}
-
-bool isLetter(char c)
-{
-	return (c >= 'à' && c <= 'ÿ') || (c >= 'À' && c <= 'ß') ||
-		(c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-}
-
-bool isSyntax(char c)
-{
-	return ((c == '.') || (c == ',') || (c == ':') || (c == ';') || (c == '!') || (c == '?'));
 }
 
 int strcmp(char* lines1, char* lines2)

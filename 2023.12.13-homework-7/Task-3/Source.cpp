@@ -2,7 +2,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<cstring>
-#include<iostream>
+//substr
 
 void CountSize(char* filename, int& lines, int& maxLine)
 {
@@ -64,10 +64,8 @@ int main(int argc, char** argv)
 	int h = 0;
 	int a = 0;
 	int b = 0;
-	FILE* file = fopen("in.txt", "r");
-	fscanf(file, "%d", a);
-	fscanf(file, "%d", b);
-	fclose(file);
+	int scanf(char* a);
+	int scanf(char* b);
 	char filename[255];
 	strcpy(filename, "in.txt");
 	CountSize(filename, h, w);

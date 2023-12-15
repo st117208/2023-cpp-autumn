@@ -2,6 +2,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<cstring>
+//strmult
 
 void CountSize(char* filename, int& lines, int& maxLine)
 {
@@ -50,7 +51,7 @@ char* strmult(char* lines, int m)
 	t = strlen(lines);
 	int g = 0;
 	char* multline = (char*)malloc(sizeof(char));
-	for (int k = 0; k < m ; ++k)
+	for (int k = 0; k < m; ++k)
 	{
 		for (int j = 0; j < t; ++j)
 		{

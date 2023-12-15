@@ -2,6 +2,7 @@
 #include<cstdio>
 #include<cstdlib>
 #include<cstring>
+//strstr
 
 void CountSize(char* filename, int& lines, int& maxLine)
 {

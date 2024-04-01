@@ -1,9 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<cstdio>
 #include<cstdlib>
-
 #include<cstring>
-#include <iostream>
 
 void CountSize(char* filename, int& lines, int& maxLine)
 {
@@ -29,22 +27,19 @@ void CountSize(char* filename, int& lines, int& maxLine)
 	fclose(file);
 }
 
-int StrLen(char* str)
+int strlen(char* str)
 {
 	int res = 0;
 	while (str[res++] != '\0');
 	return res;
 }
 
-void ReadLines(char* filename, char** lines, int maxlen)
+void ReadLines(char* filename, char** lines, int h)
 {
 	FILE* file = fopen(filename, "r");
-
-	int ind = 0;
-	while (!feof(file))
+	for (int i = 0; i < h; ++i)
 	{
-		fgets(lines[ind], maxlen+2, file);
-		ind++;
+		fscanf(file, "%[^\n]%*c", lines[i]);
 	}
 	fclose(file);
 }
@@ -57,11 +52,8 @@ char* strcat(char** lines, int h, int w)
 	{
 		for (int i = 0; i < strlen(lines[j]); ++i)
 		{
-			if (lines[j][i] != '\n')
-			{
-				commonline[k] = lines[j][i];
-				k = k + 1;
-			}
+			commonline[k] = lines[j][i];
+			k = k + 1;
 		}
 	}
 	return commonline;
@@ -79,7 +71,7 @@ int main(int argc, char** argv)
 	{
 		lines[i] = (char*)malloc(sizeof(char) * w);
 	}
-	ReadLines(filename, lines, w);
+	ReadLines(filename, lines, h);
 	FILE* file = fopen("out.txt", "w");
 	fprintf(file, "%s%\n", strcat(lines, h, w));
 	fclose(file);

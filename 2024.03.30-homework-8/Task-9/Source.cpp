@@ -25,8 +25,7 @@ public:
 	void PrintEdges();
 	void ReadMatrix(int vertexes);
 	void ReadEdges(int edges, bool haveweight = false);
-	void EdgeList();
-	int EdgeCount(int vertex);
+	void AdjacencyList(int vertexes);
 
 private:
 	void init();
@@ -50,14 +49,10 @@ int main(int argc, char* argv[])
 {
 	CGraph graph;
 	int n = 0;
-	int m = 0;
 	std::cin >> n;
-	std::cin >> m;
-	graph.ReadEdges(m);
+	graph.AdjacencyList(n);
 	std::cout << n << std::endl;
-
-	graph.EdgeList();
-
+	graph.PrintMatrix();
 
 
 	return EXIT_SUCCESS;
@@ -77,33 +72,23 @@ CGraph::~CGraph()
 	dispose();
 }
 
-int CGraph::EdgeCount(int vertex)
+void CGraph::AdjacencyList(int vertexes)
 {
-	int res = 0;
-	for (int j = 0; j < _vertexes; ++j)
-	{
-		res = res + _matrix[vertex][j];
-	}
-	return res;
-}
-
-void CGraph::EdgeList()
-{
+	int sum = 0;
+	int a = 0;
+	_vertexes = vertexes;
 	if (_matrix == nullptr)
 	{
-		initMatrixFromEdges();
+		initMatrix();
 	}
 	for (int i = 0; i < _vertexes; ++i)
 	{
-		std::cout << EdgeCount(i) << " ";
-		for (int j = 0; j < _vertexes; ++j)
+		std::cin >> sum;
+		for (int j = 0; j < sum; ++j)
 		{
-			if (_matrix[i][j] != 0)
-			{
-				std::cout << j + 1 << " ";
-			}
+			std::cin >> a;
+			_matrix[i][a - 1] = 1;
 		}
-		std::cout << std::endl;
 	}
 }
 

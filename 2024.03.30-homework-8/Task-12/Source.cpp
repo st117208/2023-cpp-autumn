@@ -84,12 +84,12 @@ bool CGraph::NotReflexivity()
 {
 	for (int i = 0; i < _vertexes; ++i)
 	{
-		if (_matrix[i][i] == 0)
+		if (_matrix[i][i] == 1)
 		{
-			return true;
+			return false;
 		}
 	}
-	return false;
+	return true;
 }
 
 bool CGraph::NotSymmetry()

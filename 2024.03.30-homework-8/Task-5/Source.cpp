@@ -25,7 +25,7 @@ public:
 	void PrintEdges();
 	void ReadMatrix(int vertexes);
 	void ReadEdges(int edges, bool haveweight = false);
-	int ShortestCycle();
+	int ClosestAncestor(int first, int second);
 
 private:
 	void init();
@@ -48,12 +48,11 @@ private:
 int main(int argc, char* argv[])
 {
 	CGraph graph;
-	int n = 0;
-	std::cin >> n;
-	graph.ReadMatrix(n);
-
-	std::cout << graph.ShortestCycle();
-
+	int first = 0;
+	int second = 0;
+	std::cin >> first;
+	std::cin >> second;
+	std::cout << graph.ClosestAncestor(first, second);
 
 	return EXIT_SUCCESS;
 }
@@ -72,26 +71,20 @@ CGraph::~CGraph()
 	dispose();
 }
 
-int CGraph::ShortestCycle()
+int CGraph::ClosestAncestor(int first, int second)
 {
-	int min = 3000;
-	for (int x = 0; x < _vertexes; ++x)
+	while (first != second)
 	{
-		for (int y = 0; y < _vertexes; ++y)
+		if (first < second)
 		{
-			for (int z = 0; z < _vertexes; ++z)
-			{
-				if ((_matrix[x][y] != 0) && (_matrix[y][z] != 0) && (_matrix[z][x] != 0))
-				{
-					if ((_matrix[x][y] + _matrix[y][z] + _matrix[z][x]) < min)
-					{
-						min = (_matrix[x][y] + _matrix[y][z] + _matrix[z][x]);
-					}
-				}
-			}
+			second = second / 2;
+		}
+		else
+		{
+			first = first / 2;
 		}
 	}
-	return min;
+	return first;
 }
 
 void CGraph::PrintMatrix()

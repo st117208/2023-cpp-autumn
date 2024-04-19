@@ -193,9 +193,23 @@ bool LinkedList::indexValid(int index)
 
 int LinkedList::PopData(Node* node)
 {
-	int tmp = node->data;
+	int res = node->data;
+	Node* tmp = head;
+	if (node == head)
+	{
+		return PopHead();
+	}
+	while (tmp->next != node)
+	{
+		tmp = tmp->next;
+	}
+	if (tmp->next->next = nullptr)
+	{
+		return PopTail();
+	}
+	tmp->next = tmp->next->next;
 	delete node;
-	return tmp;
+	return res;
 }
 
 int LinkedList::Data(int index)
